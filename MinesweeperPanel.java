@@ -23,6 +23,9 @@ public class MinesweeperPanel extends JPanel {
 				squareGrid[r][c].makeBomb();
 			}
 		}
+
+		JOptionPane.showMessageDialog(this, "You lose!");
+		System.exit(0);
 	}
 
 	public void win() {
@@ -31,6 +34,9 @@ public class MinesweeperPanel extends JPanel {
 				squareGrid[r][c].win();
 			}
 		}
+
+		JOptionPane.showMessageDialog(this, "You Win!");
+		System.exit(0);
 	}
 	
 	private void makeSquareGrid() {

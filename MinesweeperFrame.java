@@ -12,7 +12,7 @@ public class MinesweeperFrame extends JFrame {
 		
 		int numOfBombs;
 		while (true) {
-			numOfBombs = Integer.parseInt(JOptionPane.showInputDialog("Number of Bombs (# from 1 to 99, 10-20 recommended)"));
+			numOfBombs = Integer.parseInt(JOptionPane.showInputDialog("Number of Mines to Put On Board (# from 1 to 99, 10-20 recommended)"));
 			if (numOfBombs >= 1 && numOfBombs < 100) break;
 		}
 		board = new GameBoard(numOfBombs);
