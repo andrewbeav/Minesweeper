@@ -6,6 +6,8 @@ public class MinesweeperFrame extends JFrame {
 	private MinesweeperPanel panel;
 	private GameBoard board;
 
+	private JLabel counterLabel;
+
 	public MinesweeperFrame() {
 		setTitle("Minesweeper");
 		setSize(450, 450);
@@ -17,10 +19,19 @@ public class MinesweeperFrame extends JFrame {
 		}
 		board = new GameBoard(numOfBombs);
 
-		panel = new MinesweeperPanel(board);
-		add(panel);
+		setLayout(new BorderLayout());
+
+		panel = new MinesweeperPanel(this, board);
+		add(panel, BorderLayout.CENTER);
+
+		counterLabel = new JLabel("Bombs Found: " + numOfBombs);
+		add(counterLabel, BorderLayout.PAGE_START);
 
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void updateRemainingBombs(int bombsLeft) {
+		this.counterLabel.setText("Bombs Left: " + bombsLeft);
 	}
 }

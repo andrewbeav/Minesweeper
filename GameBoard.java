@@ -13,6 +13,7 @@ public class GameBoard {
 
 	private Square[][] board = new Square[BOARD_SIZE][BOARD_SIZE];
 	private int numOfBombs = MEDIUM; // Number of bombs. May change
+	private int remainingBombs;
 
 	private boolean isGamePlaying = true;
 
@@ -29,7 +30,7 @@ public class GameBoard {
 	public void initBoard() {
 		for (int r = 0; r < board.length; r++) {
 			for (int c = 0; c < board[r].length; c++) {
-				board[r][c] = new Square();
+				board[r][c] = new Square(this);
 			}
 		}
 	}
@@ -89,6 +90,18 @@ public class GameBoard {
 			if (!board[r][c].isBomb()) board[r][c].makeBomb(); 
 			else i--; // if what we tried to make a bomb was already a bomb, just try again with the same i value
 		}
+	}
+
+	public void decrementRemainingBombs() {
+		this.remainingBombs --;
+	}
+
+	public void incrementRemainingBombs() {
+		this.remainingBombs ++;
+	}
+
+	public int getRemainingBombs() {
+		return this.remainingBombs;
 	}
 
 	public boolean isGamePlaying() {

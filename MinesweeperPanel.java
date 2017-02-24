@@ -6,11 +6,14 @@ public class MinesweeperPanel extends JPanel {
 	private SquareGui[][] squareGrid = new SquareGui[GameBoard.BOARD_SIZE][GameBoard.BOARD_SIZE];
 	private int squareListSize = (int)Math.pow(GameBoard.BOARD_SIZE, 2);
 
+	private MinesweeperFrame parentFrame;
+
 	private GameBoard board;
 
-	public MinesweeperPanel(GameBoard board) {
+	public MinesweeperPanel(MinesweeperFrame parentFrame, GameBoard board) {
 		setLayout(new GridLayout(GameBoard.BOARD_SIZE, GameBoard.BOARD_SIZE));
 
+		this.parentFrame = parentFrame;
 		this.board = board;
 
 		makeSquareGrid();
@@ -61,6 +64,10 @@ public class MinesweeperPanel extends JPanel {
 				this.add(squareGrid[r][c]);
 			}
 		}
+	}
+
+	public MinesweeperFrame getParentFrame() {
+		return this.parentFrame;
 	}
 
 }
