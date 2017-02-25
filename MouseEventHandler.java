@@ -44,6 +44,7 @@ public class MouseEventHandler extends MouseAdapter {
 				board.unFlagSquare(squareRow, squareColumn);
 				squareGui.update(Square.NOT_CLICKED);
 			}
+			squareGui.getPanel().getParentFrame().updateRemainingBombs(board.getRemainingBombs());
 		}
 
 		if (board.checkForWin()) {

@@ -14,9 +14,12 @@ public class Square {
 	private char squareStatus; // flagged/clicked/not clicked
 	private int adjacentBombs; // # of adjacent bombs
 
-	public Square() {
+	private GameBoard parentBoard;
+
+	public Square(GameBoard parentBoard) {
 		this.squareType = NOT_BOMB;
 		this.squareStatus = NOT_CLICKED;
+		this.parentBoard = parentBoard;
 	}
 
 	public void click() {
@@ -29,10 +32,12 @@ public class Square {
 
 	public void flag() {
 		this.squareStatus = FLAGGED;
+		this.parentBoard.decrementRemainingBombs();
 	}
 
 	public void unFlag() {
 		if (this.squareStatus == FLAGGED) this.squareStatus = NOT_CLICKED;
+		this.parentBoard.incrementRemainingBombs();
 	}
 
 	public boolean isFlagged() {

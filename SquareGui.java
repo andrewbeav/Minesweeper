@@ -85,6 +85,10 @@ public class SquareGui extends JButton {
 		Image flag = tk.getImage("flag.png");
 		this.setIcon(new ImageIcon(flag));
 		this.setBackground(new Color(35, 150, 22));
+
+		if (this.board.getSquare(row, column).isBomb()) {
+
+		}
 	}
 
 	public int getRow() {
@@ -97,5 +101,9 @@ public class SquareGui extends JButton {
 
 	public GameBoard getBoard() {
 		return this.board;
+	}
+
+	public MinesweeperPanel getPanel() {
+		return this.panel;
 	}
 }
