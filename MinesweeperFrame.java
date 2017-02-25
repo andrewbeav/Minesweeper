@@ -11,7 +11,7 @@ public class MinesweeperFrame extends JFrame {
 	public MinesweeperFrame() {
 		setTitle("Minesweeper");
 		setSize(450, 450);
-		
+
 		int numOfBombs;
 		while (true) {
 			numOfBombs = Integer.parseInt(JOptionPane.showInputDialog("Number of Mines to Put On Board (# from 1 to 99, 10-20 recommended)"));
