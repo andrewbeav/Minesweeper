@@ -32,16 +32,12 @@ public class Square {
 
 	public void flag() {
 		this.squareStatus = FLAGGED;
-		if (this.squareType == BOMB) {
-			this.parentBoard.decrementRemainingBombs();
-		}
+		this.parentBoard.decrementRemainingBombs();
 	}
 
 	public void unFlag() {
 		if (this.squareStatus == FLAGGED) this.squareStatus = NOT_CLICKED;
-		if (this.squareType == BOMB) {
-			this.parentBoard.incrementRemainingBombs();
-		}
+		this.parentBoard.incrementRemainingBombs();
 	}
 
 	public boolean isFlagged() {
