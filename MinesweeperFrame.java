@@ -12,11 +12,24 @@ public class MinesweeperFrame extends JFrame {
 		setTitle("Minesweeper");
 		setSize(450, 450);
 
-		int numOfBombs;
-		while (true) {
-			numOfBombs = Integer.parseInt(JOptionPane.showInputDialog("Number of Mines to Put On Board (# from 1 to 99, 10-20 recommended)"));
-			if (numOfBombs >= 1 && numOfBombs < 100) break;
+		String[] options = {"Easy", "Medium", "Hard", "Extreme"};
+		int numOfBombs = JOptionPane.showOptionDialog(this, "Select Difficulty", "Minesweeper", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+
+		switch(numOfBombs) {
+			case 0:
+				numOfBombs = GameBoard.EASY;
+				break;
+			case 1:
+				numOfBombs = GameBoard.MEDIUM;
+				break;
+			case 2:
+				numOfBombs = GameBoard.HARD;
+				break;
+			case 3:
+				numOfBombs = GameBoard.EXTREME;
 		}
+
 		board = new GameBoard(numOfBombs);
 
 		setLayout(new BorderLayout());
@@ -24,7 +37,7 @@ public class MinesweeperFrame extends JFrame {
 		panel = new MinesweeperPanel(this, board);
 		add(panel, BorderLayout.CENTER);
 
-		counterLabel = new JLabel("Bombs Remaining: " + numOfBombs);
+		counterLabel = new JLabel("Bombs Still Not Flagged: " + numOfBombs);
 		add(counterLabel, BorderLayout.PAGE_START);
 
 		setVisible(true);
@@ -32,6 +45,6 @@ public class MinesweeperFrame extends JFrame {
 	}
 
 	public void updateRemainingBombs(int bombsLeft) {
-		this.counterLabel.setText("Bombs Remaining: " + bombsLeft);
+		this.counterLabel.setText("Bombs Still Not Flagged: " + bombsLeft);
 	}
 }
