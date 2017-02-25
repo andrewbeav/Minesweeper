@@ -24,7 +24,7 @@ public class MinesweeperFrame extends JFrame {
 		panel = new MinesweeperPanel(this, board);
 		add(panel, BorderLayout.CENTER);
 
-		counterLabel = new JLabel("Bombs Found: " + numOfBombs);
+		counterLabel = new JLabel("Bombs Remaining: " + numOfBombs);
 		add(counterLabel, BorderLayout.PAGE_START);
 
 		setVisible(true);
@@ -32,6 +32,6 @@ public class MinesweeperFrame extends JFrame {
 	}
 
 	public void updateRemainingBombs(int bombsLeft) {
-		this.counterLabel.setText("Bombs Left: " + bombsLeft);
+		this.counterLabel.setText("Bombs Remaining: " + bombsLeft);
 	}
 }

@@ -21,8 +21,10 @@ public class GameBoard {
 		initBoard();
 		placeBombs();
 	}
+
 	public GameBoard(int numOfBombs) {
 		this.numOfBombs = numOfBombs;
+		this.remainingBombs = numOfBombs;
 		initBoard();
 		placeBombs();
 	}
