@@ -27,7 +27,7 @@ public class MinesweeperPanel extends JPanel {
 			}
 		}
 
-		JOptionPane.showMessageDialog(this, "You lose!");
+		JOptionPane.showMessageDialog(this, "You lose!", "Minesweeper", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 	}
 
@@ -38,7 +38,7 @@ public class MinesweeperPanel extends JPanel {
 			}
 		}
 
-		JOptionPane.showMessageDialog(this, "You Win!");
+		JOptionPane.showMessageDialog(this, "You Win!", "Minesweeper", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 	}
 	
