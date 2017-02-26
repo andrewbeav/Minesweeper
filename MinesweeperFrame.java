@@ -16,6 +16,8 @@ public class MinesweeperFrame extends JFrame {
 		int numOfBombs = JOptionPane.showOptionDialog(this, "Select Difficulty", "Minesweeper", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 
+		if (numOfBombs == -1) System.exit(0);
+
 		switch(numOfBombs) {
 			case 0:
 				numOfBombs = GameBoard.EASY;
