@@ -58,7 +58,7 @@ public class SquareGui extends JButton {
 		this.setIcon(new ImageIcon(smiley));
 	}
 
-	public void gameOver() {
+	public void reveal() {
 		this.adjacentBombs = board.getSquare(row, column).getAdjacentBombs();
 		if (board.getSquare(row, column).isBomb()) this.makeBomb();
 		else if (board.getSquare(row, column).isFlagged()) this.flag();

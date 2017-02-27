@@ -24,7 +24,7 @@ public class MinesweeperPanel extends JPanel {
 		for (int r = 0; r < squareGrid.length; r++) {
 			for (int c = 0; c < squareGrid[r].length; c++) {
 				//squareGrid[r][c].makeBomb();
-				squareGrid[r][c].gameOver();
+				squareGrid[r][c].reveal();
 			}
 		}
 
