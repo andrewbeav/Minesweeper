@@ -10,7 +10,6 @@ public class SquareGui extends JButton {
 	private int adjacentBombs;
 	private MinesweeperPanel panel;
 
-	private Image squareIcon;
 	private Toolkit tk;
 
 	public SquareGui(MinesweeperPanel panel, GameBoard board, int row, int column) {
@@ -67,6 +66,8 @@ public class SquareGui extends JButton {
 
 	public void makeBomb() {
 		this.setText(null);
+
+		// Image from: http://simpleicon.com/wp-content/uploads/bomb.png
 		Image bomb = tk.getImage("bomb.png");
 		this.setIcon(new ImageIcon(bomb));
 		this.setBackground(new Color(188, 1, 1));
@@ -89,13 +90,11 @@ public class SquareGui extends JButton {
 	}
 
 	public void flag() {
+		// Image from:
+		//https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_icon_darkblue.svg/250px-Flag_icon_darkblue.svg.png
 		Image flag = tk.getImage("flag.png");
 		this.setIcon(new ImageIcon(flag));
 		this.setBackground(new Color(35, 150, 22));
-
-		if (this.board.getSquare(row, column).isBomb()) {
-
-		}
 	}
 
 	public int getRow() {
