@@ -58,6 +58,13 @@ public class SquareGui extends JButton {
 		this.setIcon(new ImageIcon(smiley));
 	}
 
+	public void gameOver() {
+		this.adjacentBombs = board.getSquare(row, column).getAdjacentBombs();
+		if (board.getSquare(row, column).isBomb()) this.makeBomb();
+		else if (board.getSquare(row, column).isFlagged()) this.flag();
+		else this.makeClicked();
+	}
+
 	public void makeBomb() {
 		this.setText(null);
 		Image bomb = tk.getImage("bomb.png");
