@@ -55,7 +55,7 @@ public class GameBoard {
 	}
 
 	public void clickOnSquare(int r, int c) {
-		board[r][c].click();
+		if (!board[c][c].isFlagged())board[r][c].click();
 
 		if (board[r][c].isBomb()) gameOver();
 

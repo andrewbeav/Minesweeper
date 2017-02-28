@@ -21,7 +21,7 @@ public class MouseEventHandler extends MouseAdapter {
 	public void mouseClicked(MouseEvent event) {
 		int button = event.getButton();
 
-		if (button == LEFT_CLICK_BUTTON) {
+		if (button == LEFT_CLICK_BUTTON && !board.getSquare(squareRow, squareColumn).isFlagged()) {
 			board.clickOnSquare(squareRow, squareColumn);
 			if (!board.isGamePlaying()) {
 				squareGui.update(GameBoard.GAME_OVER);
